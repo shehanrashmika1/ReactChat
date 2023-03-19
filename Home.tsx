@@ -16,10 +16,21 @@ const SecondRoute = () => (
   <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
 );
 
-const renderScene = SceneMap({
-  first: FirstRoute,
-  second: SecondRoute,
-});
+// const renderScene = SceneMap({
+//   first: FirstRoute,
+//   second: SecondRoute,
+// });
+
+
+const renderScene = ({ route }) => {
+  switch (route.key) {
+    case 'first':
+      return <Chats/>
+    case 'second':
+      return <View style={{ flex: 1, backgroundColor: '#673ab7' }} />;
+  }
+};
+
 
 export function Home({navigation}) {
 
