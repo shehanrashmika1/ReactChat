@@ -16,21 +16,12 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
-import { TabView, SceneMap } from 'react-native-tab-view';
 
 export function Chats({navigation}) {
 
   const layout = useWindowDimensions();
 
-  const [index, setIndex] = React.useState(0);
   const [items, setItems] = useState([]);
-
-  const [routes] = React.useState([
-    { key: 'first', title: 'First' },
-    { key: 'second', title: 'Second' },
-  ]);
-
 
   async function loadFriendList() {
     const userJSONtext = await AsyncStorage.getItem('user');

@@ -7,19 +7,26 @@ import {
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Chats } from './Chats';
 
-const FirstRoute = () => (
-  // <View style={{ flex: 1, backgroundColor: '#ff4081' }} />
-  <Chats/>
+const FirstRoute = ({navigation}) => (
+  <Chats navigation={navigation}/>
 );
 
 const SecondRoute = () => (
   <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
 );
 
-const renderScene = SceneMap({
-  first: FirstRoute,
-  second: SecondRoute,
-});
+
+const renderScene = ({ route, navigation }) => {
+  switch (route.key) {
+    case 'first':
+      return <FirstRoute navigation={navigation} />;
+    case 'second':
+      return <SecondRoute />;
+    default:
+      return null;
+  }
+};
+
 
 export function Home({navigation}) {
 
@@ -35,7 +42,7 @@ export function Home({navigation}) {
   return (
     <TabView
       navigationState={{ index, routes }}
-      renderScene={renderScene}
+      renderScene={(props) => renderScene({ ...props, navigation })}
       onIndexChange={setIndex}
       initialLayout={{ width: layout.width }}
     />
