@@ -19,21 +19,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 
-const FirstRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#ff4081' }} />
-);
-
-const SecondRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
-);
-
-const renderScene = SceneMap({
-  first: FirstRoute,
-  second: SecondRoute,
-});
-
-
-export function Home({navigation}) {
+export function Chats({navigation}) {
 
   const layout = useWindowDimensions();
 
@@ -82,15 +68,6 @@ export function Home({navigation}) {
 
 
   );
-
-  // return (
-  //   <TabView
-  //     navigationState={{ index, routes }}
-  //     renderScene={renderScene}
-  //     onIndexChange={setIndex}
-  //     initialLayout={{ width: layout.width }}
-  //   />
-  // );
   
   return ui;
 
