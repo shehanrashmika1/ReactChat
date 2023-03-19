@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {Chats} from './Home';
+import {Chats} from './Chats';
 import {SignUp} from './SignUp';
 import {SignIn} from './SignIn';
 import {Chat} from './Chat';
-import {HomeNew} from './HomeNew';
+import {Home} from './Home';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -26,7 +26,7 @@ function App() {
         initialRouteName={checkUser != null ? 'Sign In' : 'Sign In'}>
         <Stack.Screen name="Sign In" component={SignIn} />
         <Stack.Screen name="Sign Up" component={SignUp} />   
-        <Stack.Screen name="Home" component={HomeNew} />  
+        <Stack.Screen name="Home" component={Home} />  
         <Stack.Screen name="Chats" component={Chats} />
         <Stack.Screen name="Chat" component={Chat} />
       </Stack.Navigator>
